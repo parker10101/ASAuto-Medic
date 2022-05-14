@@ -1,7 +1,10 @@
 from selenium import webdriver
+import selenium
 from selenium.webdriver.common.by import By
+from selenium.common import exceptions
 import time
 import random
+print('Welcome to ASAuto-Medic Version 0.03!')
 
 #医疗文案来自 https://livedb.asoulfan.com/weibo/index.html 
 
@@ -39,12 +42,16 @@ print('已经进入ASOUL珈乐超级话题')
 while True:
     #从列表中随机一个文案
     i = random.randint(0,max)
-    wd.implicitly_wait(10)
     #检测刷新出来的第一个微博是否需要医疗
-    information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[3]/div[4]').text
+    try:
+        information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[3]/div[4]').text
+    except exceptions.NoSuchElementException:
+        information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[4]/div[4]').text
+    except:
+        print('出现未知错误，本条无法处理！')
     print(information)
     content = str(information)
-    num = content.count('医') + content.count('救') + content.count('倒') +content.count('奶')
+    num = content.count('医') + content.count('救') + content.count('倒') +content.count('奶') +content.count('治疗') +content.count('寄')
     print('符合医疗救援关键词的数量：' + str(num))
     if num > 0:
         #点赞
@@ -52,14 +59,18 @@ while True:
         likebtn.click()
         print('已点赞。')
         #评论
-        commentbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[2]/div/ul/li[3]/a/span')
-        wd.execute_script('arguments[0].click();', commentbtn)
-        time.sleep(1)
-        commentbox = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/textarea')
-        commentbox.clear()
-        commentbox.send_keys(medictextlist[i])
-        launchbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[2]/div[1]/a')
-        launchbtn.click()
+        try:
+            commentbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[2]/div/ul/li[3]/a/span')
+            wd.execute_script('arguments[0].click();', commentbtn)
+            time.sleep(1)
+            commentbox = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/textarea')
+            commentbox.clear()
+            commentbox.send_keys(medictextlist[i])
+            launchbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[2]/div[1]/a')
+            launchbtn.click()
+        except:
+            print('请检查chrome是否最小化,如最小化请恢复正常')
+            continue
         print('已评论 ' + medictextlist[i] +'. CD45秒，本阶段救援已完成！ \n')
         time.sleep(45)
         wd.refresh()
