@@ -32,6 +32,7 @@ print('请扫码登录微博以开始，你有20秒时间！')
 time.sleep(20)
 print('正在进入微博...')
 wd.refresh()
+wd.set_window_position(-2000,-2000)
 
 wd.get('https://weibo.com/p/100808a26a1ef63af56639a01c5ef11c860947/super_index')
 print('已经进入ASOUL珈乐超级话题')
