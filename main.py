@@ -70,6 +70,8 @@ while True:
         break
     except:
         print('出现未知错误，本条无法处理！')
+        wd.refresh()
+        continue
     print(information)
     content = str(information)
     num = content.count('医') + content.count('救') + content.count('倒') +content.count('奶') +content.count('治疗') +content.count('寄')
@@ -100,6 +102,7 @@ while True:
             break
         except:
             print('请检查chrome是否最小化,如最小化请恢复正常')
+            wd.refresh()
             continue
         rescued = rescued + 1
         print('已经治疗账号' + str(rescued) + '个.' + '当前时间：' + time.asctime(time.localtime(time.time())))
