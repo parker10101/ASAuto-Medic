@@ -25,21 +25,21 @@ if int(configlist[2]) == 1:
             medictextlist = m.readlines()
             print('根据配置文件，已读取自定义语料库！')
     except:
-        medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
+        medictextlist = ['我作为皇珈骑士，放几个技能很正常吧，正在进行净化操作...','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
                         '正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
                         '正在自动救援哞，你被强化了哞，继续加油哞','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
                         '正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
                         '医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
                         '一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
-                        '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
+                        '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用萨尼铁塔医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
 else:
-    medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
+    medictextlist = ['我作为皇珈骑士，放几个技能很正常吧，正在进行净化操作...','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
     '正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
     '正在自动救援哞，你被强化了哞，继续加油哞！','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
     '正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
     '医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
     '一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
-    '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
+    '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用萨尼铁塔医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
 
 max = len(medictextlist) - 1 
 
@@ -65,7 +65,12 @@ while True:
     try:
         information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[3]/div[4]').text
     except exceptions.NoSuchElementException:
-        information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[4]/div[4]').text
+        try:
+            information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[4]/div[4]').text
+        except:
+            print('出现未知错误，本条无法处理！')
+            wd.refresh()
+            continue
     except KeyboardInterrupt:
         break
     except:
@@ -95,7 +100,7 @@ while True:
             time.sleep(1)
             commentbox = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/textarea')
             commentbox.clear()
-            commentbox.send_keys(medictextlist[i].replace('\n',' ') + '——来自AsAutoMedic自动奶人机，如有误奶请见谅')
+            commentbox.send_keys(medictextlist[i].replace('\n',' ') + '——来自自动奶人机，如有误奶请见谅')
             launchbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[2]/div[1]/a')
             launchbtn.click()
         except KeyboardInterrupt:
@@ -106,7 +111,7 @@ while True:
             continue
         rescued = rescued + 1
         print('已经治疗账号' + str(rescued) + '个.' + '当前时间：' + time.asctime(time.localtime(time.time())))
-        print('已评论 ' + medictextlist[i].replace('\n',' ') + '——来自AsAutoMedic自动奶人机，如有误奶请见谅' + '本阶段救援已完成！ \n')
+        print('已评论 ' + medictextlist[i].replace('\n',' ') + '——来自自动奶人机，如有误奶请见谅' + '本阶段救援已完成！ \n')
         time.sleep(int(CD))
         wd.refresh()
     else:
