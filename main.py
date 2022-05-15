@@ -1,31 +1,51 @@
 from selenium import webdriver
-import selenium
 from selenium.webdriver.common.by import By
 from selenium.common import exceptions
 import time
 import random
-print('Welcome to ASAuto-Medic Version 0.03!')
-
-#医疗文案来自 https://livedb.asoulfan.com/weibo/index.html 
+from selenium.webdriver.chrome.service import Service
+print('Welcome to ASAuto-Medic Version 0.05!')
 
 # 加上参数，禁止 chromedriver 日志写屏
 options = webdriver.ChromeOptions()
 options.add_experimental_option(
     'excludeSwitches', ['enable-logging'])
 
-medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
-'正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
-'优先冲塔照哞，你被强化了哞，继续加油哞！','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
-'正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
-'医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
-'一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
-'一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
+rescued = 0
+
+with open('settings.conf','r') as f:
+        configlist = f.readlines()
+CD = configlist[0]
+print('从配置文件读取：医疗CD' + CD.replace('\n','') + '秒')
+url = configlist[1]
+print('从配置文件读取的url:'+url)
+if int(configlist[2]) == 1:
+    try:
+        with open('medictext.txt','r') as m:
+            medictextlist = m.readlines()
+            print('根据配置文件，已读取自定义语料库！')
+    except:
+        medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
+                        '正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
+                        '正在自动救援哞，你被强化了哞，继续加油哞','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
+                        '正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
+                        '医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
+                        '一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
+                        '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
+else:
+    medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
+    '正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
+    '正在自动救援哞，你被强化了哞，继续加油哞！','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
+    '正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
+    '医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
+    '一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
+    '一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
 
 max = len(medictextlist) - 1 
 
-
 #扫码登陆
-wd = webdriver.Chrome('chromedriver.exe',options=options)
+s = Service('chromedriver.exe')
+wd = webdriver.Chrome(service=s,options=options)
 wd.get('https://weibo.com/login.php')
 wd.implicitly_wait(20)
 element = wd.find_element(By.XPATH, '//*[@id="pl_login_form"]/div/div[1]/div/a[2]')
@@ -36,7 +56,7 @@ print('正在进入微博...')
 wd.refresh()
 wd.set_window_position(-2000,-2000)
 
-wd.get('https://weibo.com/p/100808a26a1ef63af56639a01c5ef11c860947/super_index')
+wd.get(url)
 print('已经进入ASOUL珈乐超级话题')
 while True:
     #从列表中随机一个文案
@@ -46,6 +66,8 @@ while True:
         information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[3]/div[4]').text
     except exceptions.NoSuchElementException:
         information = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[1]/div[4]/div[4]').text
+    except KeyboardInterrupt:
+        break
     except:
         print('出现未知错误，本条无法处理！')
     print(information)
@@ -54,9 +76,16 @@ while True:
     print('符合医疗救援关键词的数量：' + str(num))
     if num > 0:
         #点赞
-        likebtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[2]/div/ul/li[4]/a')
-        likebtn.click()
-        print('已点赞。')
+        try:
+            likebtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[2]/div/ul/li[4]/a')
+            likebtn.click()
+            print('已点赞。')
+        except KeyboardInterrupt:
+            break
+        except:
+            print('无法正常点赞，本条信息无法处理!')
+            wd.refresh()
+            continue
         #评论
         try:
             commentbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[2]/div/ul/li[3]/a/span')
@@ -64,14 +93,18 @@ while True:
             time.sleep(1)
             commentbox = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/textarea')
             commentbox.clear()
-            commentbox.send_keys(medictextlist[i])
+            commentbox.send_keys(medictextlist[i].replace('\n',' ') + '——来自AsAutoMedic自动奶人机，如有误奶请见谅')
             launchbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[2]/div[1]/a')
             launchbtn.click()
+        except KeyboardInterrupt:
+            break
         except:
             print('请检查chrome是否最小化,如最小化请恢复正常')
             continue
-        print('已评论 ' + medictextlist[i] +'. CD45秒，本阶段救援已完成！ \n')
-        time.sleep(45)
+        rescued = rescued + 1
+        print('已经治疗账号' + str(rescued) + '个.' + '当前时间：' + time.asctime(time.localtime(time.time())))
+        print('已评论 ' + medictextlist[i].replace('\n',' ') + '——来自AsAutoMedic自动奶人机，如有误奶请见谅' + '本阶段救援已完成！ \n')
+        time.sleep(int(CD))
         wd.refresh()
     else:
         print('检测到无需医疗救援，自动刷新')
