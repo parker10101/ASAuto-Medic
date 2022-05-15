@@ -13,14 +13,13 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option(
     'excludeSwitches', ['enable-logging'])
 
-
-medictextlist = ['来自ASAuto-Medic皇珈骑士医疗兵已上线，#阳光信用#晚晚在看吗，在看的话给你一个mua@GODIVA歌帝梵配戴着全套铂金饰品@铂金Platinum随手拿碧欧泉@碧欧泉Biotherm万宝龙赴约@MONTBLANC万宝龙踩着匡威@CONVERSE中国在你的Fendi里@FENDI Gucci的角落@GUCCI ',
-'ASAuto-Medic正在使用凤凰治疗包#阳光信用#富强、民主、文明、和谐，倡导自由、平等、公正、法治，倡导爱国、敬业、诚信、友善，积极培育和践行社会主义核心价值观。富强、民主、文明、和谐是国家层面的价值目标，自由、平等、公正、法治是社会层面的价值取向，爱国、敬业、诚信、友善是公民个人层面',
-'ASAuto-Medic正在使用凤凰治疗包！#阳光信用# 多发欧西给的名字 ，他会检测到欧内的手比较汗，然后提升你的么么哒为了米诺和冰@GODIVA歌帝梵，配戴着全套奥利安费@铂金Platinum，随手拿诶乌兹@碧欧泉Biotherm 欧内的赴@MONTBLANC万宝龙 踩着奥克苏恩@CONVERSE中国 在你的哈比下里@FENDI 凯南开的大@GUCCI',
-'ASAuto-Medic黄嘉琪加油[赞]#阳光信用# 多发大牌他会检测到你消费偏好比较高 提升你的信用为了权重和锦鲤我吃了颗帝梵巧克力@GODIVA歌帝梵 配戴着全套铂金饰品@铂金Platinum 随手拿碧欧泉@碧欧泉Biotherm 万宝龙赴约@MONTBLANC万宝龙 踩着匡威@CONVERSE中国 在你的Fendi里@FENDI Gucci的角落@GUCCI ​',
-'ASAuto-Medic皇珈医疗兵来辣，我圣骑士普度众生唯独不渡畜生。 多发大牌的名字 ，他会检测到你消费偏好比较高 然后提升你的信用为了克力@GODIVA歌帝梵 配戴着全套铂金饰品@铂金Platinum 随手拿碧欧泉@碧欧泉Biotherm @MONTBLANC万宝龙 踩着匡威@CONVERSE中国 在你的Fendi里@FENDI Gucci的角落@GUCCI',
-'ASAuto-Medic启动治疗程序。 #阳光信用# 多发大牌的名字 ，他会检测到你消费偏好比较高 然后提升你的信用为了克力@GODIVA歌帝梵 配戴着全套铂金饰品@铂金Platinum 随手拿碧欧泉@碧欧泉Biotherm @MONTBLANC万宝龙 踩着匡威@CONVERSE中国 在你的Fendi里@FENDI Gucci的角落@GUCCI',
-'ASAuto-Medic萨尼铁塔来了！嘿，摸你穷！#阳光信用# 字 ，他会检测的手比较汗，然后提升你的么么哒为了米诺和冰@GODIVA歌帝梵，配戴着全套奥利安费@铂金Platinum，随手拿诶乌兹@碧欧泉Biotherm 欧内的赴@MONTBLANC万宝龙 踩着奥克苏恩@CONVERSE中国 在你的哈比下里@FENDI 凯南开的大@GUCCI']
+medictextlist = ['正在使用ASAuto-Medic急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic医疗包，一个魂请继续加油冲锋！','正在使用ASAuto-Medic急救包，请继续加油冲锋！'
+'正在使用ASAuto-Medic急救包哞，继续加油冲锋哞！','正在使用皇珈骑士自动急救包，请继续加油冲锋！','正在使用贝极星急救包，同志请继续加油冲锋！','正在使用ASAuto-Medic急救包，为了胜利！',
+'优先冲塔照哞，你被强化了哞，继续加油哞！','正在使用ASAuto-Medic急救包，辛苦了！','取关ASOUL哞，取关b站5个人哞，继续加油冲锋哞！','正在使用ASAuto-Medic急救包，医疗15字以上哞！',
+'正在使用ASAutoMedic医疗包，奶妈注意鉴别敌友！','正在使用嘉心糖自动医疗包，冲它子也要好好吃饭捏！','正在使用奶淇琳急救包，枝江风情一朵花提醒您提醒您好好吃饭捏','求救信息去掉珈乐超话tag，治疗已完成！',
+'医疗兵注意，45s一条不会自己倒，继续加油！','医疗兵同志注意，请注意分辨敌友，你被强化了，加油！','正在使用顶碗人急救包，拉跨power赐予你力量！','求救不要带超话捏，你被强化了，坚定信念冲锋！',
+'一个魂好好休息好好吃饭捏，你被强化了，加油！','正在使用一个魂自动急救包，加油，向胜利冲锋！','正在使用贝极星急救包哞，勇敢牛牛不怕困难哞！','正在使用勇敢牛牛急救包，第一次勇敢冲它，第二次勇敢冲它，终极勇敢冲它！',
+'一个魂在冲锋和医疗的同时，不要忘记关注指挥部消息，你被强化了，加油！','医疗兵朋友们45s一次医疗，不要重复使用医疗包，避免被夹！','正在使用ASAuto-Medic医疗包，勇敢牛牛不怕困难！','正在使用黄嘉琪急救包，继续加油冲锋！']
 
 max = len(medictextlist) - 1 
 
