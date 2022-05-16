@@ -105,13 +105,11 @@ while True:
             time.sleep(1)
             #commentbox = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[1]/textarea') #Method of XPath
             commentbox = wd.find_elements(By.CLASS_NAME, 'W_input')
-            print(commentbox)
             medicbox = commentbox[2]
             medicbox.clear()
             medicbox.send_keys(medictextlist[i].replace('\n',' ') + '——来自自动奶人机，如有误奶请见谅')
             #launchbtn = wd.find_element(By.XPATH, '//*[@id="Pl_Core_MixedFeed__262"]/div/div[3]/div[1]/div[3]/div/div/div[2]/div[2]/div[2]/div[1]/a') #Method of XPath
             lanuchbtn = wd.find_elements(By.CLASS_NAME, 'W_btn_a')
-            print(lanuchbtn)
             lanuchbtn[1].click()
         except KeyboardInterrupt:
             break
@@ -122,17 +120,9 @@ while True:
         rescued = rescued + 1
         print('已经治疗账号' + str(rescued) + '个.' + '当前时间：' + time.asctime(time.localtime(time.time())))
         print('已评论 ' + medictextlist[i].replace('\n',' ') + '——来自自动奶人机，如有误奶请见谅' + '本阶段救援已完成！ \n')
-        try:
-            breakwarning = wd.find_element(By.CLASS_NAME, 'content')
-        except:
-            print('微博帐号状态正常！')
-        else:
-            print('微博提示操作繁忙！请前往医疗组接受奶妈救治！')
-            print('上述治疗可能无效！')
-            rescued = rescued - 1
         time.sleep(int(CD))
         wd.refresh()
     else:
         print('检测到无需医疗救援或符合敌军数据库，自动刷新')
         wd.refresh()
-        time.sleep(5)
+        time.sleep(10)
